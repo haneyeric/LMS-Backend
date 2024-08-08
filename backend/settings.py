@@ -16,7 +16,7 @@ from datetime import timedelta
 from environs import Env
 
 env = Env()
-env.read_env()
+env.read_env(override=True)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -34,6 +34,11 @@ EMAIL_PORT = env('EMAIL_PORT')
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
+STRIPE_SECRET_KEY = env("STRIPE_SECRET_KEY")
+PAYPAL_CLIENT_ID = env("PAYPAL_CLIENT_ID")
+PAYPAL_SECRET_ID = env("PAYPAL_SECRET_ID")
+
+FRONTEND_SITE_URL = env("FRONTEND_SITE_URL")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
